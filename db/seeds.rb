@@ -1,7 +1,79 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+puts "start seeding"
+
+Client.create(name: "David", email: "david@gmail.com", phone: 123340, password: "david", password_confirmation: "david")
+Client.create(name: "Cynthia", email: "cynthia@gmail.com", phone: 34567, password: "cynthia", password_confirmation: "cynthia")
+Client.create(name: "Rhoda", email: "rhoda@gmail.com", phone: 123345, password: "rhoda", password_confirmation: "rhoda")
+Client.create(name: "jabir", email: "jabir@gmail.com", phone: 123346, password: "jabir", password_confirmation: "jabir")
+
+
+DisputeCategory.create(category_name: "Children Law", category_description: "parental responsibility,fostering, adoption, custody, maintenance, guardianship, care and protection of children.")
+DisputeCategory.create(category_name: "Family Law",category_description:"issues involving family relationships such as marriage and divorce.")
+DisputeCategory.create(category_name: "Criminal Law",category_description:"prescribes conduct perceived as threatening, harmful, or otherwise endangering to the property, health, safety, and moral welfare of people.")
+DisputeCategory.create(category_name: "Succession Law", category_description: "deals with how to distribute a deceased individual's property.")
+DisputeCategory.create(category_name: "Commercial Law", category_description:"applies to the rights, relations, and conduct of persons and business engaged in commerce.")
+DisputeCategory.create(category_name: "Intellectual Property Law", category_description:"enable the owner of an intellectual property to exercise monopoly on the subject of the IP rights.")
+
+DisputeType.create(dispute_category_id: 1, dispute_name:"Adoption")
+DisputeType.create(dispute_category_id: 1, dispute_name:"Custody & Maintenance")
+DisputeType.create(dispute_category_id: 1, dispute_name:"Guardianship")
+DisputeType.create(dispute_category_id: 2, dispute_name:"Trademark")
+DisputeType.create(dispute_category_id: 2, dispute_name:"Copyright")
+DisputeType.create(dispute_category_id: 2, dispute_name:"Patent")
+DisputeType.create(dispute_category_id: 3, dispute_name:"Insolvency & Bankruptcy")
+DisputeType.create(dispute_category_id: 3, dispute_name:"Partnership")
+DisputeType.create(dispute_category_id: 3, dispute_name:"Joint Venture")
+DisputeType.create(dispute_category_id: 4, dispute_name:"Murder")
+DisputeType.create(dispute_category_id: 4, dispute_name:"Theft by servant")
+DisputeType.create(dispute_category_id: 4, dispute_name:"Robbery with Violence")
+DisputeType.create(dispute_category_id: 5, dispute_name:"Surrogacy")
+DisputeType.create(dispute_category_id: 5, dispute_name:"Divorce & Separation")
+DisputeType.create(dispute_category_id: 5, dispute_name:"Prenuptial Agreements")
+DisputeType.create(dispute_category_id: 6, dispute_name:"Testate Succession")
+DisputeType.create(dispute_category_id: 6, dispute_name:"Intestate Succession")
+
+
+Advocate.create(name:"Ondiege", phone:rand(12345678..87654321), email:"ondiege@gmail.com", dispute_category_id:1, years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "ondiege", password_confirmation:"ondiege" )
+Advocate.create(name:"Njomo", phone:rand(12345678..87654321), email:"njomo@gmail.com", dispute_category_id:2,years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "njomo", password_confirmation:"njomo" )
+Advocate.create(name:"Jane", phone:rand(12345678..87654321), email:"jane@gmail.com",dispute_category_id:3, years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "jane", password_confirmation:"jane" )
+Advocate.create(name:"Jon",  phone:rand(12345678..87654321), email:"jon@gmail.com", dispute_category_id:4,years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "jon", password_confirmation:"jon" )
+Advocate.create(name:"Dorcas", phone:rand(12345678..87654321), email:"dorcas@gmail.com",dispute_category_id:4, years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "dorcas", password_confirmation:"dorcas" )
+Advocate.create(name:"Francis", phone:rand(12345678..87654321), email:"francis@gmail.com", dispute_category_id:5,years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "francis", password_confirmation:"francis" )
+Advocate.create(name:"Faith", phone:rand(12345678..87654321), email:"faith@gmail.com", dispute_category_id:6,years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "faith", password_confirmation:"faith" )
+Advocate.create(name:"Jackie", phone:rand(12345678..87654321), email:"jackie@gmail.com", dispute_category_id:1,years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "jackie", password_confirmation:"jackie" )
+Advocate.create(name:"Sylvia", phone:rand(12345678..87654321), email:"sylvia@gmail.com", dispute_category_id:2,years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "sylvia", password_confirmation:"sylvia" )
+Advocate.create(name:"Agnes", phone:rand(12345678..87654321), email:"agnes@gmail.com",dispute_category_id:3, years_of_practice: rand(3..20), pin_number: rand(123456..789543), password: "agnes", password_confirmation:"agnes" )
+
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 1, advocate_id: 1, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 2, advocate_id: 2, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 3, advocate_id: 3, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 4, advocate_id: 4, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 5, advocate_id: 6, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 6, advocate_id: 7, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 1, advocate_id: 1, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 2, advocate_id: 2, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 3, advocate_id: 3, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 4, advocate_id: 5, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 5, advocate_id: 6, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 6, advocate_id: 7, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 1, advocate_id: 1, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 2, advocate_id: 2, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 3, advocate_id: 3, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 4, advocate_id: 5, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 1, advocate_id: 1, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 6, advocate_id: 7, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 4, advocate_id: 5, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 2, advocate_id: 2, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 2, advocate_id: 2, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 3, advocate_id: 3, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 4, advocate_id: 4, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 5, advocate_id: 6, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 6, advocate_id: 7, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 1, advocate_id: 1, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 2, advocate_id: 2, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 3, advocate_id: 3, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 4, advocate_id: 5, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 5, advocate_id: 6, dispute_info: Faker::TvShows::Suits.quote)
+Dispute.create(client_id: rand(1..4) , dispute_category_id: 6, advocate_id: 7, dispute_info: Faker::TvShows::Suits.quote)
+
+
+puts "seeded"

@@ -9,4 +9,7 @@ class Client < ApplicationRecord
     validates :phone, presence: true
     
 
+
+    
+
 end

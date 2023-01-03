@@ -1,5 +1,5 @@
 class DisputeSerializer < ActiveModel::Serializer
-  attributes :id, :client_name, :advocate_name, :dispute_category_name, :dispute_description, :dispute_info, :created_at
+  attributes :id, :client_name, :advocate_name, :dispute_category_name, :dispute_description, :dispute_info, :created
 
   def client_name
     "#{self.object.client.name}"
@@ -16,6 +16,10 @@ class DisputeSerializer < ActiveModel::Serializer
 
   def dispute_description
     "#{self.object.dispute_category.category_description}"
+  end
+
+  def created
+    "#{self.object.created_at}"
   end
 
 end

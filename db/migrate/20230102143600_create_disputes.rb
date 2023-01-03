@@ -4,9 +4,8 @@ class CreateDisputes < ActiveRecord::Migration[7.0]
       t.integer :client_id
       t.integer :advocate_id
       t.integer :dispute_category_id
-      t.string :dispute_info
+      t.text :dispute_info
       
-
       t.timestamps
     end
   end
